@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Luxury Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF0F4"/>
+      <stop offset="50%" stop-color="#FFE4EC"/>
+      <stop offset="100%" stop-color="#F9D2DC"/>
+    </linearGradient>
+    
+    <!-- Gold Gradient -->
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFBA6F"/>
+      <stop offset="50%" stop-color="#C5A059"/>
+      <stop offset="100%" stop-color="#9E7934"/>
+    </linearGradient>
+
+    <!-- Deep Rose Gradient -->
+    <linearGradient id="roseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C3B55"/>
+      <stop offset="100%" stop-color="#702237"/>
+    </linearGradient>
+
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#832F47" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Canvas -->
+  <rect width="512" height="512" rx="115" fill="url(#bgGrad)"/>
+  
+  <!-- Outer Gold Decorative Border -->
+  <rect x="24" y="24" width="464" height="464" rx="95" fill="none" stroke="url(#goldGrad)" stroke-width="2.5" stroke-opacity="0.6"/>
+
+  <!-- Centered Luxury Jewelry Star Emblem -->
+  <g filter="url(#subtleShadow)">
+    <!-- Central 8-pointed Radiance Star (Stella) -->
+    <path d="M 256 100 
+             C 256 160, 280 200, 340 220 
+             C 280 240, 256 280, 256 340 
+             C 256 280, 232 240, 172 220 
+             C 232 200, 256 160, 256 100 Z" 
+          fill="url(#roseGrad)" />
+
+    <!-- Inner Gold Shimmer Core -->
+    <path d="M 256 145 
+             C 256 185, 272 205, 310 220 
+             C 272 235, 256 255, 256 295 
+             C 256 255, 240 235, 202 220 
+             C 240 205, 256 185, 256 145 Z" 
+          fill="url(#goldGrad)" />
+          
+    <!-- Sparkle Diamond Accents -->
+    <circle cx="256" cy="220" r="10" fill="#FFFFFF" />
+    <circle cx="160" cy="140" r="5" fill="url(#goldGrad)" />
+    <circle cx="352" cy="140" r="5" fill="url(#goldGrad)" />
+    <circle cx="160" cy="300" r="4" fill="url(#goldGrad)" />
+    <circle cx="352" cy="300" r="4" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Brand Typography -->
+  <text x="256" y="390" 
+        font-family="'Cinzel', 'Cormorant Garamond', serif" 
+        font-size="34" 
+        font-weight="700" 
+        letter-spacing="9" 
+        fill="url(#roseGrad)" 
+        text-anchor="middle">LASTELLA</text>
+
+  <text x="256" y="420" 
+        font-family="'Montserrat', sans-serif" 
+        font-size="13" 
+        font-weight="600" 
+        letter-spacing="5" 
+        fill="#9E7934" 
+        text-anchor="middle">LUXURY JEWELRY • OMAN</text>
+</svg>
