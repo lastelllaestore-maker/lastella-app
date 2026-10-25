@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="72 0 396 248" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700&amp;family=Montserrat:wght@700;800&amp;display=swap');
+      .logo-brand {
+        font-family: 'Playfair Display', 'Cormorant Garamond', 'Didot', 'Bodoni MT', Georgia, serif;
+        font-weight: 700;
+        font-size: 88px;
+        fill: #F683A7;
+        letter-spacing: 0.5px;
+      }
+      .logo-slogan {
+        font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
+        font-weight: 800;
+        font-size: 17px;
+        fill: #F683A7;
+        letter-spacing: 5.5px;
+      }
+    </style>
+  </defs>
+
+  <!-- Solid Official Lastella Pink: #F683A7 -->
+  <g fill="#F683A7">
+    <!-- 5-Point Crown with Jewels/Pearls -->
+    <path d="M 258 26 L 254 11 L 262 21 L 269 7 L 273 21 L 282 10 L 280 23 L 290 14 L 285 27 Z" />
+    <circle cx="253.5" cy="10" r="2.6" />
+    <circle cx="261.5" cy="7" r="2.8" />
+    <circle cx="269.5" cy="5" r="3.0" />
+    <circle cx="281.5" cy="8.5" r="2.8" />
+    <circle cx="290.5" cy="12.5" r="2.6" />
+
+    <!-- Swan Head, Graceful Neck & Body -->
+    <path d="M 282 27
+             C 288 30, 294 35, 293 40
+             C 292 42, 289 44, 285 46
+             L 295 50
+             L 286 53
+             C 281 58, 276 65, 275 72
+             C 273 82, 278 91, 284 98
+             C 291 106, 298 114, 297 125
+             C 296 136, 285 144, 272 146
+             C 257 148, 243 143, 234 134
+             C 240 134, 248 130, 254 124
+             C 260 118, 262 111, 262 103
+             C 262 94, 257 86, 252 78
+             C 248 69, 249 60, 256 51
+             C 262 43, 271 36, 276 29
+             C 279 26, 281 26, 282 27 Z" />
+
+    <!-- Teardrop Pendant suspended from beak -->
+    <rect x="293.8" y="50" width="2.4" height="4.5" rx="0.6" />
+    <path d="M 295 54.5 C 291.5 54.5, 290 58.5, 290 62 C 290 67, 292.5 70.5, 295 70.5 C 297.5 70.5, 300 67, 300 62 C 300 58.5, 298.5 54.5, 295 54.5 Z" />
+
+    <!-- 5 Curved Wing Feather Plumes (sweeping left and up) -->
+    <!-- Feather 1 (Topmost & longest sweep) -->
+    <path d="M 251 79 C 244 65, 235 50, 218 41 C 230 58, 236 77, 239 94 C 244 89, 247 84, 251 79 Z" />
+    <!-- Feather 2 -->
+    <path d="M 244 96 C 236 80, 225 66, 208 61 C 219 76, 226 95, 230 111 C 235 106, 239 101, 244 96 Z" />
+    <!-- Feather 3 -->
+    <path d="M 235 113 C 227 98, 216 86, 200 83 C 211 96, 219 113, 223 128 C 227 123, 231 118, 235 113 Z" />
+    <!-- Feather 4 -->
+    <path d="M 228 129 C 220 117, 210 108, 196 107 C 207 118, 214 131, 219 142 C 222 138, 225 133, 228 129 Z" />
+    <!-- Feather 5 (Bottom) -->
+    <path d="M 223 143 C 215 134, 206 128, 195 128 C 206 136, 212 145, 217 153 C 219 149, 221 146, 223 143 Z" />
+  </g>
+
+  <!-- Wordmark "Lastella" -->
+  <text x="270" y="195" text-anchor="middle" class="logo-brand">Lastella</text>
+
+  <!-- Slogan "BIG BRAND SMALL PRICE" -->
+  <text x="270" y="238" text-anchor="middle" class="logo-slogan">BIG BRAND SMALL PRICE</text>
+</svg>
