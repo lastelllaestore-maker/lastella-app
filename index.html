@@ -3,6 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <script>
+      // In the AI Studio Cloud Run environment, HMR is disabled by design.
+      // Mock Vite's HMR WebSocket so doomed handshakes over the Cloud Run proxy do not produce false console errors.
+      (function() {
+        if (typeof window === 'undefined') return;
+
+        if (window.WebSocket) {
+          var NativeWebSocket = window.WebSocket;
+          function ViteSafeWebSocket(url, protocols) {
+            var isHmr = false;
+            if (protocols === 'vite-hmr' || (Array.isArray(protocols) && protocols.indexOf('vite-hmr') !== -1)) {
+              isHmr = true;
+            } else if (typeof url === 'string' && (url.indexOf('vite-hmr') !== -1 || url.indexOf('/@vite/') !== -1)) {
+              isHmr = true;
+            }
+
+            if (isHmr) {
+              var bus = new EventTarget();
+              var mock = {
+                url: url,
+                readyState: 1, // WebSocket.OPEN
+                protocol: 'vite-hmr',
+                extensions: '',
+                bufferedAmount: 0,
+                binaryType: 'blob',
+                send: function() {},
+                close: function() {},
+                addEventListener: bus.addEventListener.bind(bus),
+                removeEventListener: bus.removeEventListener.bind(bus),
+                dispatchEvent: bus.dispatchEvent.bind(bus),
+              };
+              ['open', 'message', 'error', 'close'].forEach(function(ev) {
+                Object.defineProperty(mock, 'on' + ev, {
+                  get: function() { return this['_on' + ev] || null; },
+                  set: function(fn) {
+                    if (this['_on' + ev]) bus.removeEventListener(ev, this['_on' + ev]);
+                    this['_on' + ev] = fn;
+                    if (fn) bus.addEventListener(ev, fn);
+                  }
+                });
+              });
+              return mock;
+            }
+            return new NativeWebSocket(url, protocols);
+          }
+          ViteSafeWebSocket.prototype = NativeWebSocket.prototype;
+          ViteSafeWebSocket.CONNECTING = NativeWebSocket.CONNECTING;
+          ViteSafeWebSocket.OPEN = NativeWebSocket.OPEN;
+          ViteSafeWebSocket.CLOSING = NativeWebSocket.CLOSING;
+          ViteSafeWebSocket.CLOSED = NativeWebSocket.CLOSED;
+          window.WebSocket = ViteSafeWebSocket;
+        }
+
+        window.addEventListener('error', function(event) {
+          var msg = event && (event.message || (event.error && event.error.message)) || '';
+          if (
+            msg.indexOf('WebSocket closed without opened') !== -1 ||
+            (event.filename && event.filename.indexOf('@vite/client') !== -1)
+          ) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            return true;
+          }
+        }, true);
+
+        window.addEventListener('unhandledrejection', function(event) {
+          var reason = event && event.reason;
+          var msg = String((reason && reason.message) || reason || '');
+          if (msg.indexOf('WebSocket') !== -1) {
+            event.preventDefault();
+            event.stopImmediatePropagation();
+          }
+        }, true);
+      })();
+    </script>
     <title>LASTELLA | مجوهرات لاستيلا سلطنة عُمان | بريق يدوم وأناقة لا تنتهي</title>
     <meta name="description" content="تسوقي أرقى مجوهرات لاستيلا الفاخرة في سلطنة عُمان. عقود، خواتم، أساور، وأطقم مطلية بالذهب ومقاومة للماء مع توصيل سريع في عُمان." />
     <meta name="theme-color" content="#FFF9FB" />
@@ -26,9 +101,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="/assets/index-59hIl3yc.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/vendor-icons-C3_JwRqz.js">
-    <link rel="modulepreload" crossorigin href="/assets/vendor-react-CzABGx1E.js">
+    <script type="module" crossorigin src="/assets/index-B4fJdatC.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-icons-Bv_GwLsC.js">
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-lTTJu-L1.js">
     <link rel="modulepreload" crossorigin href="/assets/vendor-firebase-C3G95_jn.js">
     <link rel="stylesheet" crossorigin href="/assets/index-DTAPk4E_.css">
   <link rel="manifest" href="/manifest.webmanifest"></head>
